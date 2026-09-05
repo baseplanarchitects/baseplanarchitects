@@ -1,0 +1,24 @@
+@use 'variables' as *;
+
+footer{ background:$ink; color:$paper; padding:$sp-7 0; }
+.footer-top{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:$sp-7;
+  padding-bottom:$sp-6;
+}
+@media (max-width:900px){ .footer-top{ grid-template-columns:1fr 1fr; gap:$sp-5; } }
+@media (max-width:560px){ .footer-top{ grid-template-columns:1fr; } }
+.footer-brand .brand-mark{ margin-bottom:$sp-3; }
+.footer-brand p{ color:$stone; font-size:14.5px; max-width:280px; }
+.footer-col{
+  h5{ font-family:$font-ui; font-size:13px; letter-spacing:.03em; color:$stone; margin-bottom:$sp-3; font-weight:500; }
+  ul{ display:flex; flex-direction:column; gap:$sp-2; }
+  a, li{ font-size:14.5px; color:#d8d8d6; }
+  a:hover{ color:$paper; }
+  li{ display:flex; gap:10px; align-items:flex-start; }
+  li svg{ width:15px; height:15px; margin-top:2px; flex:none; color:$stone; }
+}
+.footer-bottom{
+  border-top:1px solid rgba(251,251,251,.14); padding-top:$sp-3;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:$sp-2;
+  font-family:$font-ui; font-size:13px; color:$stone;
+}

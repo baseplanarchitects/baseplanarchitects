@@ -1,0 +1,55 @@
+@use 'variables' as *;
+
+#booking-overlay{
+  position:fixed; inset:0; z-index:2000;
+  background:rgba(13,13,13,.55);
+  backdrop-filter:blur(4px);
+  opacity:0; visibility:hidden;
+  display:flex; align-items:center; justify-content:center;
+  padding:$sp-3;
+  transition:opacity .35s $ease, visibility .35s $ease;
+}
+#booking-overlay.open{ opacity:1; visibility:visible; }
+.booking-modal{
+  background:$paper; border-radius:16px; width:100%; max-width:560px;
+  max-height:88vh; overflow-y:auto;
+  padding:$sp-5;
+  transform:translateY(24px) scale(.98); opacity:0;
+  transition:transform .4s $ease, opacity .4s $ease;
+}
+#booking-overlay.open .booking-modal{ transform:translateY(0) scale(1); opacity:1; }
+.booking-head{
+  display:flex; justify-content:space-between; align-items:flex-start; gap:$sp-3;
+  h3{ font-size:23px; }
+  p{ margin-top:8px; font-size:14.5px; max-width:400px; }
+}
+.booking-close{
+  width:34px; height:34px; border-radius:50%; border:1px solid $hairline;
+  display:flex; align-items:center; justify-content:center; flex:none;
+  transition:background .2s $ease;
+  &:hover{ background:$paper-dim; }
+  svg{ width:14px; height:14px; }
+}
+
+.booking-form{ margin-top:$sp-4; display:flex; flex-direction:column; gap:$sp-3; }
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:$sp-3; }
+@media (max-width:480px){ .field-row{ grid-template-columns:1fr; } }
+.field{
+  label{ display:block; font-family:$font-ui; font-size:12.5px; color:$stone; margin-bottom:6px; }
+  input, select, textarea{
+    width:100%; border:1px solid $hairline; border-radius:8px;
+    padding:12px 14px; background:$paper-dim; color:$ink;
+    transition:border-color .2s $ease, background .2s $ease;
+    &:focus{ outline:none; border-color:$ink; background:$paper; }
+  }
+  textarea{ resize:vertical; min-height:80px; }
+}
+.booking-submit{ width:100%; justify-content:center; margin-top:$sp-1; }
+.booking-note{ font-size:12.5px; color:$stone; margin-top:$sp-2; }
+.booking-success{
+  display:none; text-align:center; padding:$sp-4 0;
+  &.show{ display:block; }
+  svg{ width:44px; height:44px; margin:0 auto $sp-3; color:$ink; }
+  h4{ font-size:19px; }
+  p{ margin-top:8px; font-size:14.5px; }
+}

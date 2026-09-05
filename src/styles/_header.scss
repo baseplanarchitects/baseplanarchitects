@@ -1,0 +1,181 @@
+@use 'variables' as *;
+
+// ---------- preloader ----------
+#preloader{
+  position:fixed; inset:0; z-index:9999;
+  background:$ink;
+  display:flex; align-items:center; justify-content:center;
+  transition:clip-path .8s $ease .1s, visibility .8s $ease .1s;
+  clip-path:circle(150% at 50% 50%);
+}
+#preloader .pl-inner{
+  display:flex; flex-direction:column; align-items:center; gap:22px;
+  opacity:1; transform:scale(1);
+  transition:opacity .5s $ease, transform .5s $ease;
+}
+#preloader .pl-mark{
+  width:84px; height:84px; border-radius:10px; overflow:hidden;
+  opacity:0; transform:scale(.8);
+  animation:plEnter .7s $ease forwards, plPulse 1.8s $ease .7s infinite;
+}
+#preloader .pl-mark img{ width:100%; height:100%; object-fit:cover; }
+#preloader .pl-bar{
+  width:120px; height:2px; background:rgba(251,251,251,.16); border-radius:2px; overflow:hidden;
+  opacity:0; animation:plFadeIn .5s $ease .3s forwards;
+}
+#preloader .pl-bar span{
+  display:block; height:100%; width:0%; background:$paper;
+  animation:plFill 1.4s $ease .35s forwards;
+}
+@keyframes plEnter{
+  0%{ opacity:0; transform:scale(.8) translateY(6px); }
+  100%{ opacity:1; transform:scale(1) translateY(0); }
+}
+@keyframes plFadeIn{ to{ opacity:1; } }
+@keyframes plFill{ to{ width:100%; } }
+@keyframes plPulse{
+  0%,100%{ transform:scale(1); opacity:1; }
+  50%{ transform:scale(.94); opacity:.75; }
+}
+body.loaded #preloader{ clip-path:circle(0% at 50% 50%); visibility:hidden; }
+body.loaded #preloader .pl-inner{ opacity:0; transform:scale(.92); }
+
+// ---------- header / capsule nav ----------
+#site-header{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:22px 0;
+  transition:padding .45s $ease;
+}
+.nav-shell{
+  max-width:$container;
+  margin:0 auto;
+  padding:0 $sp-5;
+  display:flex; align-items:center; justify-content:space-between;
+  height:90px;
+  border-radius:999px;
+  transition:height .45s $ease, background .45s $ease, box-shadow .45s $ease,
+             max-width .45s $ease, padding .45s $ease, border-color .45s $ease;
+  border:1px solid transparent;
+}
+#site-header.scrolled{
+  padding:12px 0;
+  .nav-shell{
+    max-width:1080px;
+    height:64px;
+    background:rgba(251,251,251,.86);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-color:$hairline;
+    box-shadow:0 12px 30px rgba(13,13,13,.08);
+    padding:0 $sp-3;
+  }
+  .brand-word{ display:none; color:$ink; }
+  .nav-links a{ color:$ink; &::after{ background:$ink; } }
+  .nav-cta .btn-secondary{
+    color:$ink; border-color:$ink;
+    &:hover{ background:$ink; color:$paper; border-color:$ink; }
+  }
+  .hamburger span{ background:$ink; }
+}
+
+// header is "light on dark" by default (sits over the dark hero); once
+// scrolled it flips to the ink-on-paper capsule look above. On pages
+// without a dark hero we force the scrolled/light look via .site-header--light.
+#site-header.site-header--light:not(.scrolled){
+  .brand-word{ color:$ink; }
+  .nav-links a{ color:$ink; &::after{ background:$ink; } }
+  .nav-cta .btn-secondary{ color:$ink; border-color:$ink; }
+  .hamburger span{ background:$ink; }
+}
+
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{ width:42px; height:42px; border-radius:8px; overflow:hidden; flex:none; }
+.brand-mark img{ width:100%; height:100%; object-fit:cover; }
+.brand-word{
+  font-family:$font-ui;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:-0.01em;
+  color:$paper;
+  transition:color .4s $ease;
+}
+@media (max-width:480px){ .brand-word{ display:none; } }
+
+.nav-links{
+  display:flex; align-items:center; gap:$sp-4;
+  font-family:$font-ui;
+  font-size:14.5px;
+  font-weight:500;
+}
+.nav-links a{
+  position:relative; padding:4px 0; color:$paper;
+  transition:color .4s $ease;
+  &::after{
+    content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+    background:$paper; transform:scaleX(0); transform-origin:right;
+    transition:transform .3s $ease, background .4s $ease;
+  }
+  &:hover::after{ transform:scaleX(1); transform-origin:left; }
+  &.active::after{ transform:scaleX(1); transform-origin:left; }
+}
+
+.nav-cta{ display:flex; align-items:center; gap:$sp-2; }
+.nav-cta .btn{ padding:12px 24px; font-size:14px; }
+.nav-cta .btn-secondary{
+  color:$paper; border-color:rgba(251,251,251,.55);
+  transition:color .4s $ease, border-color .4s $ease, background .2s $ease, transform .2s $ease;
+  &:hover{ background:$paper; color:$ink; border-color:$paper; }
+}
+
+.hamburger{
+  display:none; flex-direction:column; justify-content:center; gap:5px;
+  width:40px; height:40px; flex:none;
+  span{
+    display:block; width:22px; height:1.5px; background:$paper;
+    margin:0 auto; transition:transform .35s $ease, opacity .25s $ease, background .4s $ease;
+  }
+  &.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  &.open span:nth-child(2){ opacity:0; }
+  &.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+}
+
+@media (max-width:860px){
+  .nav-links{ display:none; }
+  .nav-cta .btn-secondary{ display:none; }
+  .hamburger{ display:flex; }
+}
+
+// ---------- mobile menu panel ----------
+#mobile-menu{
+  position:fixed; inset:0; z-index:900;
+  background:$ink;
+  color:$paper;
+  display:flex; flex-direction:column;
+  justify-content:center;
+  padding:0 $sp-4;
+  clip-path:circle(0px at calc(100% - 40px) 46px);
+  transition:clip-path .55s $ease;
+  pointer-events:none;
+}
+#mobile-menu.open{
+  clip-path:circle(150% at calc(100% - 40px) 46px);
+  pointer-events:auto;
+}
+#mobile-menu .m-links{ display:flex; flex-direction:column; gap:$sp-3; }
+#mobile-menu .m-links a{
+  font-family:$font-title; font-size:34px; font-weight:600;
+  color:$paper; opacity:0; transform:translateY(16px);
+  transition:opacity .5s $ease, transform .5s $ease;
+}
+#mobile-menu.open .m-links a{
+  opacity:1; transform:translateY(0);
+  @for $i from 1 through 6{
+    &:nth-child(#{$i}){ transition-delay:#{.02 + $i * 0.06}s; }
+  }
+}
+#mobile-menu .m-cta{ margin-top:$sp-5; }
+#mobile-menu .m-meta{
+  position:absolute; bottom:$sp-4; left:$sp-4; right:$sp-4;
+  display:flex; justify-content:space-between; font-family:$font-ui;
+  font-size:13px; color:$stone;
+}

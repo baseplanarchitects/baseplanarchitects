@@ -1,0 +1,113 @@
+@use 'variables' as *;
+
+:root{
+  --ink:        #{$ink};
+  --paper:      #{$paper};
+  --stone:      #{$stone};
+  --hairline:   #{$hairline};
+  --ink-soft:   #{$ink-soft};
+  --paper-dim:  #{$paper-dim};
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:$paper;
+  color:$ink;
+  font-family:$font-body;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.no-scroll{ overflow:hidden; }
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+input,select,textarea{ font-family:inherit; font-size:15px; }
+
+h1,h2,h3,h4{
+  font-family:$font-title;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+  margin:0;
+  color:$ink;
+}
+p{ margin:0; color:$ink-soft; }
+
+.container{
+  max-width:$container;
+  margin:0 auto;
+  padding:0 $sp-5;
+}
+@media (max-width:1024px){ .container{ padding:0 $sp-4; } }
+@media (max-width:640px){ .container{ padding:0 $sp-3; } }
+
+.eyebrow{
+  font-family:$font-ui;
+  font-size:13px;
+  font-weight:500;
+  color:$stone;
+}
+
+// ---------- buttons ----------
+.btn{
+  font-family:$font-ui;
+  font-weight:500;
+  font-size:15px;
+  padding:16px 32px;
+  border-radius:4px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:transform .2s $ease, background .2s $ease, color .2s $ease, border-color .2s $ease;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:$ink;
+  color:$paper;
+  border:1px solid $ink;
+  &:hover{ background:$ink-soft; transform:translateY(-2px); }
+  &:active{ transform:scale(.98); }
+}
+.btn-secondary{
+  background:transparent;
+  color:$ink;
+  border:1px solid $ink;
+  &:hover{ background:$ink; color:$paper; transform:translateY(-2px); }
+  &:active{ transform:scale(.98); }
+}
+.btn-ghost{
+  background:transparent;
+  color:$paper;
+  border:1px solid rgba(251,251,251,.4);
+  &:hover{ background:rgba(251,251,251,.12); border-color:$paper; }
+}
+.btn svg{ width:16px; height:16px; flex:none; }
+
+// ---------- section shell ----------
+.section{ padding:120px 0; }
+@media (max-width:1024px){ .section{ padding:80px 0; } }
+@media (max-width:640px){ .section{ padding:60px 0; } }
+
+.section-head{ max-width:$content; margin-bottom:$sp-6; }
+.section-head h2{ font-size:clamp(2rem,3.4vw,2.9rem); margin-top:$sp-3; }
+.section-head p{ margin-top:$sp-3; font-size:17px; }
+.section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+
+// ---------- reveal-on-scroll ----------
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s $ease, transform .8s $ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+.reveal-scale{ opacity:0; transform:scale(.94); transition:opacity .8s $ease, transform .8s $ease; }
+.reveal-scale.in{ opacity:1; transform:scale(1); }
+
+// accessibility
+:focus-visible{ outline:2px solid $ink; outline-offset:2px; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}

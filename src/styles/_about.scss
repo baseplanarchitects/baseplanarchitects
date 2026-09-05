@@ -1,0 +1,67 @@
+@use 'variables' as *;
+
+// ---------- story / intro ----------
+#story{ background:$paper; }
+.story-layout{ display:grid; grid-template-columns:1fr 1fr; gap:$sp-7; align-items:start; }
+@media (max-width:900px){ .story-layout{ grid-template-columns:1fr; gap:$sp-5; } }
+.story-copy p + p{ margin-top:$sp-3; }
+.story-copy p{ font-size:16.5px; }
+
+.stat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:$sp-4; }
+.stat-card{
+  border:1px solid $hairline; border-radius:12px; padding:$sp-4;
+  background:$paper-dim;
+}
+.stat-card .stat-num{
+  font-family:$font-title; font-weight:800; font-size:clamp(2rem,3vw,2.6rem);
+  color:$ink;
+}
+.stat-card .stat-label{
+  margin-top:6px; font-family:$font-ui; font-size:13.5px; color:$stone;
+}
+
+// ---------- values ----------
+#values{ background:$paper-dim; border-top:1px solid $hairline; border-bottom:1px solid $hairline; }
+.values-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:$sp-4; }
+@media (max-width:860px){ .values-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .values-grid{ grid-template-columns:1fr; } }
+.value-card{
+  border:1px solid $hairline; border-radius:12px; padding:$sp-4; background:$paper;
+  transition:border-color .3s $ease, box-shadow .3s $ease, transform .3s $ease;
+  &:hover{ border-color:#dcdbd8; box-shadow:0 16px 36px rgba(13,13,13,.07); transform:translateY(-4px); }
+  .value-num{ font-family:$font-title; font-size:14px; color:$stone; }
+  h3{ font-size:18px; margin-top:$sp-2; }
+  p{ margin-top:12px; font-size:14.5px; }
+}
+
+// ---------- team ----------
+#team{ background:$paper; }
+.team-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:$sp-4; }
+@media (max-width:960px){ .team-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .team-grid{ grid-template-columns:1fr; } }
+.team-card{
+  border:1px solid $hairline; border-radius:12px; overflow:hidden; background:$paper-dim;
+}
+.team-photo{
+  aspect-ratio:1/1; background:$hairline;
+  display:flex; align-items:center; justify-content:center;
+  svg{ width:56%; height:56%; color:$stone; }
+}
+.team-body{ padding:$sp-3 $sp-4 $sp-4; }
+.team-body h4{ font-family:$font-ui; font-size:16px; font-weight:600; }
+.team-body .team-role{ font-family:$font-ui; font-size:12.5px; color:$stone; margin-top:4px; }
+.team-body p{ margin-top:10px; font-size:13.5px; }
+
+// ---------- timeline ----------
+#timeline{ background:$paper-dim; border-top:1px solid $hairline; border-bottom:1px solid $hairline; }
+.timeline-list{ display:flex; flex-direction:column; }
+.timeline-item{
+  display:grid; grid-template-columns:120px 1fr; gap:$sp-4;
+  padding:$sp-4 0; border-bottom:1px solid $hairline;
+  &:first-child{ padding-top:0; }
+  &:last-child{ border-bottom:none; }
+}
+@media (max-width:560px){ .timeline-item{ grid-template-columns:1fr; gap:$sp-1; } }
+.timeline-year{ font-family:$font-title; font-weight:700; font-size:20px; color:$stone; }
+.timeline-item h4{ font-family:$font-ui; font-size:16.5px; font-weight:600; }
+.timeline-item p{ margin-top:8px; font-size:14.5px; max-width:560px; }
