@@ -1,70 +1,21 @@
 import { Link } from 'react-router-dom';
+import { ArrowUpRight, ArrowUp } from '@phosphor-icons/react';
 import logo from '../assets/logo.jpg';
-
+import Magnetic from './Magnetic';
+import ThemeToggle from './ThemeToggle';
+import { useBookingModal } from '../context/BookingModalContext';
+const links = [['Home', '/'], ['Projects', '/projects'], ['Services', '/#solution'], ['Process', '/#process'], ['About', '/about'], ['Gallery', '/gallery'], ['Contact', '/contact']];
 export default function Footer() {
-  return (
-    <footer id="footer">
-      <div className="container">
-        <div className="footer-top">
-          <div className="footer-brand">
-            <span className="brand-mark">
-              <img src={logo} alt="Base Plan Architects logo" />
-            </span>
-            <p>
-              Where vision meets structure — building design, consultancy, interior design and
-              garden design across Dhaka.
-            </p>
-          </div>
-          <div className="footer-col">
-            <h5>Sitemap</h5>
-            <ul>
-              <li><Link to="/#projects">Projects</Link></li>
-              <li><Link to="/#solution">Services</Link></li>
-              <li><Link to="/#process">Process</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h5>Services</h5>
-            <ul>
-              <li>Building Design</li>
-              <li>Consultancy</li>
-              <li>Interior Design</li>
-              <li>Garden Design</li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h5>Contact</h5>
-            <ul>
-              <li>
-                <svg viewBox="0 0 16 16" fill="none">
-                  <path d="M8 14.5s5-4.2 5-8.2A5 5 0 003 6.3c0 4 5 8.2 5 8.2z" stroke="currentColor" strokeWidth="1.3" />
-                  <circle cx="8" cy="6.3" r="1.7" stroke="currentColor" strokeWidth="1.3" />
-                </svg>
-                <span>House 900, Road 17, Block G,<br />Basundhara R/A, Dhaka 1229</span>
-              </li>
-              <li>
-                <svg viewBox="0 0 16 16" fill="none">
-                  <path d="M3.2 2.7l2.6.4c.4 0 .7.3.8.7l.6 2.2c.1.4 0 .8-.3 1.1l-1.2 1.1a10.5 10.5 0 004.9 4.9l1.1-1.2c.3-.3.7-.4 1.1-.3l2.2.6c.4.1.7.4.7.8l.4 2.6c.1.5-.3.9-.8.9C8.6 16.8-.2 8-.1 2.6c0-.5.4-.9.9-.8z" stroke="currentColor" strokeWidth="1.1" />
-                </svg>
-                <a href="tel:+8801339910397">+880 1339‑910397</a>
-              </li>
-              <li>
-                <svg viewBox="0 0 16 16" fill="none">
-                  <path d="M2 4.5l6 4.5 6-4.5" stroke="currentColor" strokeWidth="1.3" />
-                  <rect x="2" y="3" width="12" height="10" rx="1.4" stroke="currentColor" strokeWidth="1.3" />
-                </svg>
-                <a href="mailto:baseplanarchitects@gmail.com">baseplanarchitects@gmail.com</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <span>© 2026 Base Plan Architects. All rights reserved.</span>
-          <span>Where Vision Meets Structure</span>
-        </div>
-      </div>
-    </footer>
-  );
+  const { openBooking } = useBookingModal();
+  return <footer id="footer" className="dark-footer"><div className="container">
+    <div className="footer-invitation"><div><p className="eyebrow">Have a space in mind?</p><h2>Let’s make it<br /><span>something meaningful.</span></h2></div><Magnetic><button className="footer-consult" onClick={openBooking}>Book Consultation <ArrowUpRight size={22} /></button></Magnetic></div>
+    <div className="footer-info"><div className="footer-identity"><Link to="/" aria-label="Base Plan Architects home"><img src={logo} alt="Base Plan Architects" width="180" height="180" loading="lazy" /></Link><p>Architecture. Interiors. Construction.<br />One considered plan, from start to finish.</p></div>
+      <div className="footer-menu"><p className="eyebrow">Explore</p>{links.map(([label, to]) => <Link key={label} to={to}><span>{label}</span><ArrowUpRight size={15} /></Link>)}</div>
+      <div className="footer-contact"><p className="eyebrow">Start a conversation</p><a href="mailto:baseplanarchitects@gmail.com">baseplanarchitects@gmail.com <ArrowUpRight size={16} /></a><a href="tel:+8801339910397">+880 1339-910397 <ArrowUpRight size={16} /></a></div>
+      <div className="footer-address"><p className="eyebrow">Visit the studio</p><p>House 900, Road 17, Block G<br />Basundhara R/A<br />Dhaka 1229, Bangladesh</p><p className="footer-hours">Saturday - Thursday<br />10:00 AM - 6:00 PM</p></div>
+    </div>
+    <div className="footer-bottom"><span>© 2026 Base Plan Architects. All rights reserved.</span><ThemeToggle /><a href="#main-content">Back to top <ArrowUp size={14} /></a></div>
+  </div></footer>;
 }
+
+

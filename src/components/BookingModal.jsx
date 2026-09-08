@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useBookingModal } from '../context/BookingModalContext';
+import { services } from '../data/services';
 
 const initialFields = {
   name: '',
@@ -7,7 +8,7 @@ const initialFields = {
   email: '',
   date: '',
   time: '',
-  service: 'Building Design',
+  service: services[0][0],
   message: '',
 };
 
@@ -18,7 +19,8 @@ export default function BookingModal() {
   const overlayRef = useRef(null);
 
   useEffect(() => {
-    document.body.classList.toggle('no-scroll', isOpen);
+    if (isOpen) overlayRef.current?.showModal();
+    else overlayRef.current?.close();
   }, [isOpen]);
 
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function BookingModal() {
     e.preventDefault();
     const { name, email, phone, date, time, service, message } = fields;
 
-    const subject = `Consultation Request — ${name}`;
+    const subject = `Consultation Request, ${name}`;
     const body =
       `Name: ${name}\n` +
       `Email: ${email}\n` +
@@ -70,9 +72,11 @@ export default function BookingModal() {
   }
 
   return (
-    <div
+    <dialog
       id="booking-overlay"
       ref={overlayRef}
+      aria-labelledby="booking-title"
+      onCancel={closeBooking}
       className={isOpen ? 'open' : ''}
       onClick={(e) => {
         if (e.target === overlayRef.current) closeBooking();
@@ -80,15 +84,12 @@ export default function BookingModal() {
     >
       <div
         className="booking-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="booking-title"
       >
         <div className="booking-head">
           <div>
             <h3 id="booking-title">Book a Consultation</h3>
             <p>
-              Tell us a little about your project and a preferred time — we&apos;ll confirm by
+              Tell us a little about your project and a preferred time, we&apos;ll confirm by
               email or phone.
             </p>
           </div>
@@ -169,10 +170,7 @@ export default function BookingModal() {
             <div className="field">
               <label htmlFor="bf-service">Service</label>
               <select id="bf-service" name="service" value={fields.service} onChange={handleChange}>
-                <option>Building Design</option>
-                <option>Consultancy</option>
-                <option>Interior Design</option>
-                <option>Garden Design</option>
+                {services.map(([title]) => <option key={title}>{title}</option>)}
               </select>
             </div>
             <div className="field">
@@ -203,12 +201,13 @@ export default function BookingModal() {
             </svg>
             <h4>Request ready to send</h4>
             <p>
-              We&apos;ve opened your email app with the details filled in — just hit send, and
+              We&apos;ve opened your email app with the details filled in, just hit send, and
               we&apos;ll confirm your consultation shortly.
             </p>
           </div>
         )}
       </div>
-    </div>
+    </dialog>
   );
 }
+

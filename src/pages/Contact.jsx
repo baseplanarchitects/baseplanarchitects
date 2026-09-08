@@ -35,7 +35,7 @@ const CONTACT_ITEMS = [
   },
   {
     title: 'Studio hours',
-    body: 'Saturday – Thursday, 10:00 AM – 6:00 PM',
+    body: 'Saturday - Thursday, 10:00 AM - 6:00 PM',
     icon: (
       <svg viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="8" r="6.3" stroke="currentColor" strokeWidth="1.3" />
@@ -46,7 +46,7 @@ const CONTACT_ITEMS = [
 ];
 
 const HOURS = [
-  { title: 'Studio visits', body: 'Saturday – Thursday · 10:00 AM – 6:00 PM, by appointment.' },
+  { title: 'Studio visits', body: 'Saturday - Thursday · 10:00 AM - 6:00 PM, by appointment.' },
   { title: 'Site visits', body: 'Scheduled per project, typically within the same working week.' },
   { title: 'Friday', body: 'Closed. Emails and calls are answered the next working day.' },
 ];
@@ -66,7 +66,7 @@ export default function Contact() {
     e.preventDefault();
     const { name, email, phone, subject, message } = fields;
 
-    const mailSubject = subject || `Website inquiry — ${name}`;
+    const mailSubject = subject || `Website inquiry, ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
 
     const mailto =
@@ -85,7 +85,7 @@ export default function Contact() {
         <div className="hero-bg" aria-hidden="true"></div>
         <div className="container">
           <p className="eyebrow">Contact Base Plan Architects</p>
-          <h1>Tell us about your plot — we&apos;ll take it from there.</h1>
+          <h1>Tell us about your plot, we&apos;ll take it from there.</h1>
           <p>
             Reach out about a new project, an existing site, or just to talk through an idea.
             We reply within one working day.
@@ -216,7 +216,7 @@ export default function Contact() {
                   </svg>
                   <h4>Message ready to send</h4>
                   <p>
-                    We&apos;ve opened your email app with the details filled in — just hit send
+                    We&apos;ve opened your email app with the details filled in, just hit send
                     and we&apos;ll be in touch shortly.
                   </p>
                 </div>
@@ -230,8 +230,8 @@ export default function Contact() {
       <section id="hours">
         <div className="container">
           <Reveal as="div" className="section-head" style={{ marginBottom: '32px' }}>
-            <p className="eyebrow" style={{ color: '#acaba9' }}>Before you visit</p>
-            <h2 style={{ color: '#fbfbfb' }}>Studio &amp; site hours.</h2>
+            <p className="eyebrow" >Before you visit</p>
+            <h2 >Studio &amp; site hours.</h2>
           </Reveal>
           <div className="hours-grid">
             {HOURS.map((item) => (
@@ -246,3 +246,5 @@ export default function Contact() {
     </>
   );
 }
+
+

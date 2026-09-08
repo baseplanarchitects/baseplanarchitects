@@ -14,14 +14,13 @@ export default function Reveal({
   ...rest
 }) {
   const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => typeof window !== 'undefined' && !('IntersectionObserver' in window));
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     if (!('IntersectionObserver' in window)) {
-      setVisible(true);
       return;
     }
 

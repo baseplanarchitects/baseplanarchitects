@@ -1,0 +1,402 @@
+{
+  "likhon-apartment": [
+    {
+      "image": "/projects/likhon-apartment/01.webp",
+      "source": "src/assets/likhon apartment/01.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/likhon-apartment/02.webp",
+      "source": "src/assets/likhon apartment/02.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/likhon-apartment/03.webp",
+      "source": "src/assets/likhon apartment/03.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/likhon-apartment/04.webp",
+      "source": "src/assets/likhon apartment/04.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/likhon-apartment/05.webp",
+      "source": "src/assets/likhon apartment/05.jpg",
+      "group": "3D visualization",
+      "width": 3786,
+      "height": 2430
+    },
+    {
+      "image": "/projects/likhon-apartment/06.webp",
+      "source": "src/assets/likhon apartment/06.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/likhon-apartment/07.webp",
+      "source": "src/assets/likhon apartment/07.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    }
+  ],
+  "tm-international-office": [
+    {
+      "image": "/projects/tm-international-office/01.webp",
+      "source": "src/assets/tm international office/01.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/02.webp",
+      "source": "src/assets/tm international office/02.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/03.webp",
+      "source": "src/assets/tm international office/03.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/04.webp",
+      "source": "src/assets/tm international office/04.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/05.webp",
+      "source": "src/assets/tm international office/05.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/06.webp",
+      "source": "src/assets/tm international office/06.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/07.webp",
+      "source": "src/assets/tm international office/07.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/08.webp",
+      "source": "src/assets/tm international office/08.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "image": "/projects/tm-international-office/09.webp",
+      "source": "src/assets/tm international office/09.jpg",
+      "group": "3D visualization",
+      "width": 3840,
+      "height": 2160
+    }
+  ],
+  "riaz-haq-bedroom": [
+    {
+      "image": "/projects/riaz-haq-bedroom/01.webp",
+      "source": "src/assets/riaz haq bedroom/Artboard1.jpg",
+      "group": "3D visualization",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "image": "/projects/riaz-haq-bedroom/02.webp",
+      "source": "src/assets/riaz haq bedroom/Artboard2.jpg",
+      "group": "3D visualization",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "image": "/projects/riaz-haq-bedroom/03.webp",
+      "source": "src/assets/riaz haq bedroom/Artboard3.jpg",
+      "group": "3D visualization",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "image": "/projects/riaz-haq-bedroom/04.webp",
+      "source": "src/assets/riaz haq bedroom/Artboard4.jpg",
+      "group": "3D visualization",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "image": "/projects/riaz-haq-bedroom/05.webp",
+      "source": "src/assets/riaz haq bedroom/Artboard5.jpg",
+      "group": "3D visualization",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "image": "/projects/riaz-haq-bedroom/06.webp",
+      "source": "src/assets/riaz haq bedroom/Artboard6.jpg",
+      "group": "3D visualization",
+      "width": 2560,
+      "height": 1440
+    }
+  ],
+  "nazrul-bedroom": [
+    {
+      "image": "/projects/nazrul-bedroom/01.webp",
+      "source": "src/assets/nazrul bedroom/3D/1.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/02.webp",
+      "source": "src/assets/nazrul bedroom/3D/2.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/03.webp",
+      "source": "src/assets/nazrul bedroom/3D/3.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/04.webp",
+      "source": "src/assets/nazrul bedroom/3D/4.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/05.webp",
+      "source": "src/assets/nazrul bedroom/3D/5.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/06.webp",
+      "source": "src/assets/nazrul bedroom/3D/6.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/07.webp",
+      "source": "src/assets/nazrul bedroom/3D/7.jpg",
+      "group": "3D visualization",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/08.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/1.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/09.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/2.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/10.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/3.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/11.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/4.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/12.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/5.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/13.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/6.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/14.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/7.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/15.webp",
+      "source": "src/assets/nazrul bedroom/after hanover picture/8.jpg",
+      "group": "Completed interior",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/16.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/1.jpg",
+      "group": "Before & after",
+      "width": 4320,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/17.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/10.jpg",
+      "group": "Before & after",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/18.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/11.jpg",
+      "group": "Before & after",
+      "width": 4321,
+      "height": 2431
+    },
+    {
+      "image": "/projects/nazrul-bedroom/19.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/12.jpg",
+      "group": "Before & after",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/20.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/13.jpg",
+      "group": "Before & after",
+      "width": 4321,
+      "height": 2431
+    },
+    {
+      "image": "/projects/nazrul-bedroom/21.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/14.jpg",
+      "group": "Before & after",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/22.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/2.jpg",
+      "group": "Before & after",
+      "width": 3024,
+      "height": 4032
+    },
+    {
+      "image": "/projects/nazrul-bedroom/23.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/3.jpg",
+      "group": "Before & after",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/24.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/4.jpg",
+      "group": "Before & after",
+      "width": 4321,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/25.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/5.jpg",
+      "group": "Before & after",
+      "width": 4321,
+      "height": 2430
+    },
+    {
+      "image": "/projects/nazrul-bedroom/26.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/6.jpg",
+      "group": "Before & after",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/27.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/7.jpg",
+      "group": "Before & after",
+      "width": 4321,
+      "height": 2431
+    },
+    {
+      "image": "/projects/nazrul-bedroom/28.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/8.jpg",
+      "group": "Before & after",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/29.webp",
+      "source": "src/assets/nazrul bedroom/BEFORE AFTER/9.jpg",
+      "group": "Before & after",
+      "width": 4321,
+      "height": 2431
+    },
+    {
+      "image": "/projects/nazrul-bedroom/30.webp",
+      "source": "src/assets/nazrul bedroom/CONSTRUCTION/1.jpg",
+      "group": "Construction",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/31.webp",
+      "source": "src/assets/nazrul bedroom/CONSTRUCTION/2.jpg",
+      "group": "Construction",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/32.webp",
+      "source": "src/assets/nazrul bedroom/CONSTRUCTION/3.jpg",
+      "group": "Construction",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/33.webp",
+      "source": "src/assets/nazrul bedroom/CONSTRUCTION/4.jpg",
+      "group": "Construction",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "image": "/projects/nazrul-bedroom/34.webp",
+      "source": "src/assets/nazrul bedroom/CONSTRUCTION/5.jpg",
+      "group": "Construction",
+      "width": 3023,
+      "height": 4031
+    }
+  ]
+}

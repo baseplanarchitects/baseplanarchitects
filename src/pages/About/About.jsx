@@ -1,4 +1,8 @@
+import LeadershipPortrait from '../../components/LeadershipPortrait';
+import directorPortrait from '../../assets/baseplan_architect_ceo.jpeg';
+import ResponsiveImage from '../../components/ResponsiveImage';
 import Reveal from '../../components/Reveal';
+import { User } from '@phosphor-icons/react';
 import { useBookingModal } from '../../context/BookingModalContext';
 
 const STATS = [
@@ -17,7 +21,7 @@ const VALUES = [
   {
     num: '02',
     title: 'Honest budgets',
-    body: 'A written estimate before design work begins, and changes explained before they happen — not after.',
+    body: 'A written estimate before design work begins, and changes explained before they happen, not after.',
   },
   {
     num: '03',
@@ -57,12 +61,7 @@ const TEAM = [
 ];
 
 function PersonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="8.5" r="3.6" stroke="currentColor" strokeWidth="1.4" />
-      <path d="M4.5 20c1.4-4 4-6 7.5-6s6.1 2 7.5 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-    </svg>
-  );
+  return <User size={48} weight="thin" />;
 }
 
 export default function About() {
@@ -77,12 +76,19 @@ export default function About() {
           <p className="eyebrow">About Base Plan Architects</p>
           <h1>A studio built to carry one plan from sketch to handover.</h1>
           <p>
-            We&apos;re a Dhaka-based practice designing homes, offices and gardens — one team,
+            We&apos;re a Dhaka-based practice designing homes, offices and gardens, one team,
             start to finish, so nothing is redrawn or re-explained halfway through.
           </p>
         </div>
       </section>
 
+      <section className="container leadership-section" aria-labelledby="leadership-title">
+        <div className="section-heading"><div><p className="eyebrow">People behind the practice</p><h2 id="leadership-title">A shared vision.<br />A personal approach.</h2></div><p>Leadership that connects the first<br />conversation to the final detail.</p></div>
+        <div className="leadership-grid">
+          <Reveal className="leader"><LeadershipPortrait src={directorPortrait} alt="Base Plan Architects MD and Principal Architect" width="952" height="960" loading="lazy" /><div className="leader-caption"><h3>MD and Principal Architect</h3><span className="eyebrow">Leadership</span></div><p>A clear point of connection between your aspirations, the studio and the team delivering your project.</p></Reveal>
+          {/* <Reveal className="leader"><div className="leader-photo"><ResponsiveImage src="/images/principal-reference.webp" alt="Sample portrait for principal architect layout; not Rafiul Karim" width="900" height="1100" /><span>Sample portrait</span></div><div className="leader-caption"><h3>Rafiul Karim</h3><span className="eyebrow">Principal Architect</span></div><p className="asset-note">Name retained from existing website. Official portrait and biography to be supplied.</p><p>Bringing architecture, interiors and landscape into a single design conversation, from concept through site coordination.</p></Reveal> */}
+        </div>
+      </section>
       {/* ============ STORY ============ */}
       <section id="story" className="section">
         <div className="container">
@@ -94,7 +100,7 @@ export default function About() {
               </h2>
               <p style={{ marginTop: '24px' }}>
                 Base Plan Architects started because too many good projects in Dhaka were losing
-                their shape between the sketch and the site — a design team handing off to a
+                their shape between the sketch and the site, a design team handing off to a
                 build team, a budget that moved after approval, RAJUK paperwork stalling
                 everything in between.
               </p>
@@ -105,7 +111,7 @@ export default function About() {
               </p>
               <p>
                 Today that means homes in Bashundhara and Dhanmondi, offices in Gulshan and
-                Uttara, and gardens that hold up in Dhaka&apos;s climate — all carried by the same
+                Uttara, and gardens that hold up in Dhaka&apos;s climate, all carried by the same
                 point of contact from concept to move-in day.
               </p>
             </Reveal>
@@ -195,7 +201,7 @@ export default function About() {
           <Reveal as="h2">Let&apos;s put your plan on paper.</Reveal>
           <Reveal as="p">
             Book a consultation and we&apos;ll walk through your plot, budget and timeline
-            together — no obligation.
+            together, no obligation.
           </Reveal>
           <Reveal as="button" className="btn btn-ghost" onClick={openBooking}>
             Book a Consultation
@@ -208,3 +214,8 @@ export default function About() {
     </>
   );
 }
+
+
+
+
+
