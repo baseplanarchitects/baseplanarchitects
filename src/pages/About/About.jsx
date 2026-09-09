@@ -1,6 +1,6 @@
 import LeadershipPortrait from '../../components/LeadershipPortrait';
 import directorPortrait from '../../assets/baseplan_architect_ceo.jpeg';
-import ResponsiveImage from '../../components/ResponsiveImage';
+
 import Reveal from '../../components/Reveal';
 import { User } from '@phosphor-icons/react';
 import { useBookingModal } from '../../context/BookingModalContext';
@@ -214,6 +214,7 @@ export default function About() {
     </>
   );
 }
+
 
 
 

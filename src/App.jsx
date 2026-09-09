@@ -1,3 +1,4 @@
+import PointerAtmosphere from './components/PointerAtmosphere';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Admin, { ADMIN_LOGIN } from './pages/Admin/Admin';
 import { useEffect } from 'react';
@@ -28,14 +29,14 @@ function ScrollToTop() {
 
 export default function App() {
   const { pathname } = useLocation();
-  // if (pathname === ADMIN_LOGIN || pathname === '/admin' || pathname.startsWith('/admin/') || pathname === '/admin-preview' || pathname.startsWith('/admin-preview/')) return <><ScrollToTop /><Routes>
-  //   <Route path={ADMIN_LOGIN} element={<Admin />} />
-  //   <Route path="/admin-preview" element={<Navigate to="/admin-preview/home" replace />} />
-  //   <Route path="/admin-preview/:section" element={<Admin preview />} />
-  //   <Route path="*" element={<Navigate to={ADMIN_LOGIN} replace />} />
-  // </Routes></>;
+  if (pathname === ADMIN_LOGIN || pathname === '/admin' || pathname.startsWith('/admin/') || pathname === '/admin-preview' || pathname.startsWith('/admin-preview/')) return <><PointerAtmosphere /><ScrollToTop /><Routes>
+    <Route path={ADMIN_LOGIN} element={<Admin />} />
+    <Route path="/admin-preview" element={<Navigate to="/admin-preview/home" replace />} />
+    <Route path="/admin-preview/:section" element={<Admin key={pathname} preview />} />
+    <Route path="*" element={<Navigate to={ADMIN_LOGIN} replace />} />
+  </Routes></>;
   return (
-    <BookingModalProvider>
+    <BookingModalProvider><PointerAtmosphere />
       <PageMeta />
       <ScrollToTop />
       <Header />
@@ -55,3 +56,4 @@ export default function App() {
     </BookingModalProvider>
   );
 }
+

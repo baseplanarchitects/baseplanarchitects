@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, Navigate, useParams } from 'react-router-dom';
 import { ArrowUpRight, House, Users, UserPlus, Receipt, ClipboardText, List, X, ArrowLeft, LockKey } from '@phosphor-icons/react';
 import logo from '../../assets/logo.jpg';
@@ -17,6 +17,15 @@ export default function Admin({ preview = false }) {
   const { section = 'home' } = useParams();
   const [menuOpen, setMenuOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const closeMenuRef = useRef(null);
+  const openMenuRef = useRef(null);
+  useEffect(() => {
+    if (!menuOpen) return;
+    closeMenuRef.current?.focus();
+    const onKey = event => { if (event.key === 'Escape') { setMenuOpen(false); openMenuRef.current?.focus(); } };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
   const [message, setMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   useEffect(() => {
@@ -25,7 +34,7 @@ export default function Admin({ preview = false }) {
     robots.name = 'robots'; robots.content = 'noindex, nofollow'; document.head.append(robots);
     return () => robots.remove();
   }, [preview]);
-  useEffect(() => { setQuery(''); setMenuOpen(false); }, [section]);
+
 
   if (!preview) return <main className="admin-login">
     <aside className="admin-login-story"><Brand /><div><p className="admin-kicker">THE STUDIO, CONNECTED</p><h1>One place.<br />Every detail.</h1><p>From the first enquiry to the final handover, keep your practice in view.</p><div className="admin-plan" aria-hidden="true"><i /><i /><i /></div></div><span className="admin-kicker">BASE PLAN ARCHITECTS · DHAKA</span></aside>
@@ -43,9 +52,11 @@ export default function Admin({ preview = false }) {
   const rows = data?.rows.filter(row => row.join(' ').toLowerCase().includes(query.toLowerCase())) ?? [];
   return <div className="admin-shell">
     {menuOpen && <button className="admin-scrim" aria-label="Close navigation" onClick={() => setMenuOpen(false)} />}
-    <aside className={`admin-sidebar ${menuOpen ? 'is-open' : ''}`}><Brand /><button className="admin-close" aria-label="Close navigation" onClick={() => setMenuOpen(false)}><X size={24} /></button><p className="admin-kicker">WORKSPACE</p><nav aria-label="Admin navigation">{sections.map(([id, label, Icon]) => <NavLink key={id} to={`/admin-preview/${id}`}><Icon size={21} /><span>{label}</span></NavLink>)}</nav><div className="admin-sidebar-bottom"><span className="admin-kicker">SAMPLE WORKSPACE</span><p>Good work starts<br />with a clear plan.</p><Link to={ADMIN_LOGIN}><ArrowLeft size={18} /> Back to login</Link></div></aside>
-    <main className="admin-workspace"><header className="admin-topbar"><button className="admin-menu" aria-label="Open navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><List size={24} /></button><span>Studio / <strong>{title}</strong></span><Link to="/">View website <ArrowUpRight size={16} /></Link></header><div className="admin-content"><div className="admin-demo-note">Preview mode <span>Sample records only. Authentication and live data are not connected.</span></div><div className="admin-page-heading"><p className="admin-kicker">BASE PLAN / STUDIO MANAGEMENT</p><h1>{section === 'home' ? 'Studio overview.' : `${title}.`}</h1><p>{data?.description ?? 'Your projects, people and priorities — in one place.'}</p></div>
+    <aside className={`admin-sidebar ${menuOpen ? 'is-open' : ''}`}><Brand /><button ref={closeMenuRef} className="admin-close" aria-label="Close navigation" onClick={() => setMenuOpen(false)}><X size={24} /></button><p className="admin-kicker">WORKSPACE</p><nav aria-label="Admin navigation">{sections.map(([id, label, Icon]) => <NavLink key={id} to={`/admin-preview/${id}`}><Icon size={21} /><span>{label}</span></NavLink>)}</nav><div className="admin-sidebar-bottom"><span className="admin-kicker">SAMPLE WORKSPACE</span><p>Good work starts<br />with a clear plan.</p><Link to={ADMIN_LOGIN}><ArrowLeft size={18} /> Back to login</Link></div></aside>
+    <main className="admin-workspace" inert={menuOpen}><header className="admin-topbar"><button ref={openMenuRef} className="admin-menu" aria-label="Open navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><List size={24} /></button><span>Studio / <strong>{title}</strong></span><Link to="/">View website <ArrowUpRight size={16} /></Link></header><div className="admin-content"><div className="admin-demo-note">Preview mode <span>Sample records only. Authentication and live data are not connected.</span></div><div className="admin-page-heading"><p className="admin-kicker">BASE PLAN / STUDIO MANAGEMENT</p><h1>{section === 'home' ? 'Studio overview.' : `${title}.`}</h1><p>{data?.description ?? 'Your projects, people and priorities — in one place.'}</p></div>
     {section === 'home' ? <><div className="admin-metrics">{[['New leads', '03', 'leads'], ['Active clients', '02', 'clients'], ['Pending invoices', '01', 'invoice'], ['Open workorders', '02', 'workorder']].map(([label, value, path]) => <Link key={path} to={`/admin-preview/${path}`}><span>{label}<ArrowUpRight size={18} /></span><strong>{value}</strong><small>View {label.toLowerCase()}</small></Link>)}</div><div className="admin-home-grid"><section className="admin-panel"><div className="admin-panel-heading"><h2>Next in the studio</h2><span>Sample activity</span></div>{[['01', 'A new conversation', 'Review the latest enquiry.', 'leads'], ['02', 'Keep the work moving', 'Check upcoming site measurements.', 'workorder'], ['03', 'Close the loop', 'Review the pending invoice.', 'invoice']].map(([num, label, description, path]) => <Link className="admin-task" key={num} to={`/admin-preview/${path}`}><span>{num}</span><div><h3>{label}</h3><p>{description}</p></div><ArrowUpRight size={20} /></Link>)}</section><section className="admin-studio-note"><ClipboardText size={34} weight="thin" /><p className="admin-kicker">FROM BRIEF TO BUILT</p><h2>Make room<br />for good work.</h2><p>Keep scope, client conversations and delivery visible throughout each project.</p><Link to="/admin-preview/workorder">Explore workorders <ArrowUpRight /></Link></section></div></> : <section className="admin-panel"><div className="admin-panel-heading"><h2>All {title.toLowerCase()} <span>({rows.length})</span></h2><label className="admin-search"><span className="admin-kicker">SEARCH</span><input type="search" aria-label={`Search ${title}`} value={query} onChange={e => setQuery(e.target.value)} placeholder={`Search ${title.toLowerCase()}…`} /></label></div><div className="admin-table-scroll"><table><thead><tr>{data.columns.map(col => <th key={col} scope="col">{col}</th>)}</tr></thead><tbody>{rows.map(row => <tr key={row[0]}>{row.map((cell, index) => <td key={index}>{index === 0 ? <strong>{cell}</strong> : cell}</td>)}</tr>)}</tbody></table>{!rows.length && <p className="admin-empty" role="status">No matching records. Try another search.</p>}</div></section>}
     <footer className="admin-page-footer">Base Plan Architects <span>Studio workspace / Preview</span></footer></div></main>
   </div>;
 }
+
+

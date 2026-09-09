@@ -120,3 +120,11 @@ Local preview: `http://127.0.0.1:5181/`. The site has not been publicly publishe
 - Project definitions can explicitly specify `discipline: 'Exterior'` for future exterior work.
 - Desktop and 390px mobile navigation, filter combinations, empty states and keyboard tab navigation were checked. Production build passes; lint retains the existing BookingModalContext Fast Refresh warning.
 - Earlier Lighthouse results in this report predate these client-review updates; no new Lighthouse score is claimed.
+
+## Admin UI and dark background update
+
+- Login UI: `/base-plan-architect-admin-login`. Dashboard sample workspace: `/admin-preview/home`, with Leads, Clients, Invoice and Workorder sections.
+- Per owner instruction, authentication is deferred. Login does not authenticate, store passwords or unlock records. Sample records are clearly labelled; search filters the sample tables. `/admin` routes redirect to login. No backend authorization or live record management is claimed.
+- Admin routes have noindex/nofollow metadata. This is indexing guidance, not an access control mechanism.
+- Public website and admin UI now use the approved black background and original studio fonts, with a restrained dot pattern and mouse-follow grid illumination. The overlay cannot intercept clicks. Touch and reduced-motion users receive a static background; existing magnetic buttons and portrait hover remain available on desktop.
+- Desktop navigation and all five dashboard pages were reviewed; sample search and its empty state were verified. Build passes; the existing BookingModalContext Fast Refresh lint warning remains.

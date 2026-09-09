@@ -201,3 +201,37 @@ dialog#booking-overlay::backdrop { background: transparent; }
 
 .leader-photo-interactive { overflow: hidden; }
 .leader-photo-interactive img { display: block; filter: none; }
+
+// Client-approved dark studio palette.
+:root, :root[data-theme] { --surface: #0d0d0d; --text: #fbfbfb; --muted: #acaba9; --line: #2c2c2b; --subtle: #191918; --inverse: #0d0d0d; color-scheme: dark; }
+.pointer-atmosphere { position: fixed; inset: 0; pointer-events: none; z-index: 25; overflow: hidden; --pointer-x: -500px; --pointer-y: -500px; --pointer-visible: 0; }
+.pointer-grid { position: absolute; inset: 0; background-image: linear-gradient(#ffffff12 1px, transparent 1px), linear-gradient(90deg,#ffffff12 1px,transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(circle 240px at var(--pointer-x) var(--pointer-y),#000,transparent); opacity: var(--pointer-visible); transition: opacity .4s; }
+.pointer-halo { position: absolute; width: 340px; height: 340px; left: 0; top: 0; transform: translate(calc(var(--pointer-x) - 170px),calc(var(--pointer-y) - 170px)); background: radial-gradient(circle,#ffffff0a,transparent 70%); opacity: var(--pointer-visible); transition: opacity .4s; }
+body { background-image: radial-gradient(#ffffff08 .7px,transparent .7px); background-size: 28px 28px; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .pointer-atmosphere { display: none; } }
+
+// Warm charcoal and graphite give the dark direction a softer rhythm.
+:root, :root[data-theme] { --surface: #1b1c1a; --text: #f6f4ef; --muted: #b7b5ae; --line: #393a35; --subtle: #272823; --inverse: #1b1c1a; }
+#intro, #process, #story { background-color: #242521; }
+#intro, #process { box-shadow: 0 0 0 100vmax #242521; clip-path: inset(0 -100vmax); }
+#site-header { background: #1b1c1af2; }
+.studio-loader { position: fixed; inset: 0; z-index: 2000; background: #1b1c1a; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 32px; transition: opacity .35s ease, visibility .35s; }
+.studio-loader.leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+.studio-loader-mark { width: 180px; position: relative; overflow: hidden; }
+.studio-loader-mark img { width: 180px; height: 180px; object-fit: contain; filter: invert(1) grayscale(1); mix-blend-mode: screen; }
+.studio-loader-mark span { position: absolute; inset: 0; background: linear-gradient(110deg, transparent 25%, #ffffff28 50%, transparent 75%); transform: translateX(-100%); animation: studio-logo-sweep 1.2s ease-in-out infinite; }
+.studio-loader p { font: 400 9px $font-ui; letter-spacing: .22em; color: #b7b5ae; }
+@keyframes studio-logo-sweep { to { transform: translateX(100%); } }
+@media(prefers-reduced-motion:reduce) { .studio-loader { transition: none; }.studio-loader-mark span { animation: none; display: none; } }
+
+.studio-loader-geometry { width: 144px; height: 144px; position: relative; display: grid; place-items: center; }
+.studio-loader-geometry img { filter: invert(1) grayscale(1); mix-blend-mode: screen; width: 88px; height: 88px; }
+.loader-square,.loader-diamond { position: absolute; inset: 8px; border: 1px solid #b7b5ae; }
+.loader-square { animation: loader-square-turn 1.8s ease-in-out infinite; }
+.loader-diamond { inset: 24px; border-color: #65665f; animation: loader-diamond-turn 1.8s ease-in-out infinite; }
+.loader-fill-text { position: relative; font: 500 clamp(26px,6vw,38px)/1.2 $font-title; letter-spacing: .16em; color: #66675f; }
+.loader-fill-text::after { content: attr(data-text); position: absolute; inset: 0; color: #f6f4ef; clip-path: inset(0 100% 0 0); animation: loader-text-fill .6s ease-out both; }
+@keyframes loader-square-turn { 0%,100% { transform: rotate(0); } 50% { transform: rotate(90deg); } }
+@keyframes loader-diamond-turn { 0%,100% { transform: rotate(45deg); } 50% { transform: rotate(-45deg); } }
+@keyframes loader-text-fill { to { clip-path: inset(0); } }
+@media(prefers-reduced-motion:reduce) { .loader-square,.loader-diamond,.loader-fill-text::after { animation: none; }.loader-fill-text::after { clip-path: inset(0); } }
