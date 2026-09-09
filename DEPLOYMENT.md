@@ -23,3 +23,6 @@ The static marketing frontend builds successfully. It is not a complete producti
 - Updated desktop/mobile navigation shares Home, About, Projects, Services, Process, Gallery, Contact order. Mobile menu uses the studio logo.
 - Initial loader has geometric shapes, brand text fill, reduced-motion support and bounded dismissal. It does not repeat on client-side navigation.
 - Earlier Lighthouse scores are historical, not a certification of this revision. Recheck performance and forms on the final host.
+
+## Vercel route refresh fix
+The root vercel.json now rewrites SPA requests to /index.html, following Vercel's Vite guidance. Deploy this file together with the source, using the directory containing package.json as Vercel Root Directory. Redeploy after pushing these changes; an existing deployment does not pick up local configuration edits. Verify /about, /gallery, project detail URLs and an unknown URL on the deployed domain. Unknown pages render the custom animated 404 UI (SPA fallback responses use HTTP 200).

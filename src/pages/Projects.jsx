@@ -38,5 +38,5 @@ export function ProjectDetail() {
     <Link className="next-project" to={`/projects/${next.slug}`}><span className="eyebrow">Next project</span><h2>{next.title}</h2><ArrowUpRight size={36} /></Link>
   </article>;
 }
-export function NotFound() { return <section className="container page-heading not-found"><p className="eyebrow">404 / Page not found</p><h1>A different direction.</h1><p>This page is not part of the plan. Explore our work or return to the studio homepage.</p><Link to="/" className="text-link">Back to home <ArrowUpRight /></Link></section>; }
+export function NotFound() { return <section className="container not-found" aria-labelledby="not-found-title"><div className="not-found-art" aria-hidden="true"><span>4</span><div className="missing-plan"><i /><i /><i /></div><span>4</span></div><p className="eyebrow">404 / Page not found</p><h1 id="not-found-title">Outside the plan.</h1><p>This page may have moved, or the address may be incorrect. Let’s find your way back.</p><div className="not-found-actions"><Link to="/" className="btn btn-primary">Back to home <ArrowUpRight /></Link><Link to="/projects" className="text-link">Explore projects <ArrowUpRight /></Link></div></section>; }
 

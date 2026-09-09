@@ -235,3 +235,17 @@ body { background-image: radial-gradient(#ffffff08 .7px,transparent .7px); backg
 @keyframes loader-diamond-turn { 0%,100% { transform: rotate(45deg); } 50% { transform: rotate(-45deg); } }
 @keyframes loader-text-fill { to { clip-path: inset(0); } }
 @media(prefers-reduced-motion:reduce) { .loader-square,.loader-diamond,.loader-fill-text::after { animation: none; }.loader-fill-text::after { clip-path: inset(0); } }
+
+.not-found { min-height: calc(100svh - 90px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 64px; padding-bottom: 80px; }
+.not-found-art { display: flex; align-items: center; justify-content: center; gap: clamp(16px,4vw,44px); margin-bottom: 36px; color: var(--text); }
+.not-found-art > span { font: 300 clamp(100px,18vw,220px)/1 $font-title; }
+.missing-plan { position: relative; width: clamp(78px,14vw,160px); aspect-ratio: 1; }
+.missing-plan i { position: absolute; inset: 8%; border: 1px solid var(--muted); animation: missing-plan-orbit 6s ease-in-out infinite; }
+.missing-plan i:nth-child(2) { inset: 22%; animation-direction: reverse; border-color: var(--text); }
+.missing-plan i:nth-child(3) { inset: 38%; animation-delay: -.75s; background: var(--subtle); }
+.not-found h1 { font-size: clamp(32px,5vw,56px); margin: 20px 0; letter-spacing: -.045em; }
+.not-found > p:not(.eyebrow) { max-width: 440px; font-size: 14px; line-height: 1.9; }
+.not-found-actions { display: flex; gap: 28px; align-items: center; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+.not-found .text-link { margin-top: 0; }
+@keyframes missing-plan-orbit { 0%,100% { transform: rotate(0); } 50% { transform: rotate(90deg); } }
+@media(prefers-reduced-motion:reduce) { .missing-plan i { animation: none; }.missing-plan i:nth-child(2) { transform: rotate(45deg); } }
