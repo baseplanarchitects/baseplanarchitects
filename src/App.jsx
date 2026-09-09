@@ -1,4 +1,5 @@
 import PointerAtmosphere from './components/PointerAtmosphere';
+import WhatsAppButton from './components/WhatsAppButton';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Admin, { ADMIN_LOGIN } from './pages/Admin/Admin';
 import { useEffect } from 'react';
@@ -52,6 +53,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppButton />
       <BookingModal />
     </BookingModalProvider>
   );
